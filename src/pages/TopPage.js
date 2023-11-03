@@ -3,7 +3,7 @@ import {Selector} from "../components/Selector";
 import {Results} from "../components/Results";
 import {Header} from "../components/Header";
 
-const TopPage = ({countriesJson, setCountry, getCountryData, countryData}) => {
+const TopPage = ({countriesJson, setCountry, getCountryData, countryData, loading}) => {
   return (
     <div className="top-page-container">
       <div>
@@ -14,7 +14,7 @@ const TopPage = ({countriesJson, setCountry, getCountryData, countryData}) => {
           setCountry={setCountry}
           getCountryData={getCountryData}
         />
-        <Results countryData={countryData}/>
+        <Results countryData={countryData} loading={loading}/>
       </div>
     </div>
   );

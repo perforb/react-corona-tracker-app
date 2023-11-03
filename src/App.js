@@ -6,6 +6,7 @@ import "./App.css";
 import countriesJson from "./countries.json";
 
 function App() {
+  const [loading, setLoading] = useState(false);
   const [country, setCountry] = useState("");
   const [countryData, setCountryData] = useState({
     date: "",
@@ -16,6 +17,7 @@ function App() {
   });
   const [allCountriesData, setAllCountriesData] = useState([]);
   const getCountryData = () => {
+    setLoading(true);
     fetch(`https://monotein-books.vercel.app/api/corona-tracker/country/${country}`)
       .then(res => res.json())
       .then(data => {
@@ -26,6 +28,7 @@ function App() {
           newRecovered: data[data.length - 1].Recovered - data[data.length - 2].Recovered,
           totalRecovered: data[data.length - 1].Recovered,
         });
+        setLoading(false);
       })
       .catch(err => alert("An error occurred."));
   };
@@ -46,6 +49,7 @@ function App() {
             setCountry={setCountry}
             getCountryData={getCountryData}
             countryData={countryData}
+            loading={loading}
           />
         }/>
         <Route path="/world" element={
