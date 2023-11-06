@@ -41,7 +41,7 @@ function App() {
     fetch(`https://monotein-books.vercel.app/api/corona-tracker/summary`)
       .then(res => res.json())
       .then(data => setAllCountriesData(data.Countries))
-      .catch(err => alert("An error occurred."));
+      .catch(err => alert(`An error occurred. ${err}`));
   }, []);
 
   return (
