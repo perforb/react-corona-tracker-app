@@ -1,4 +1,6 @@
-const Selector = ({setCountry, countriesJson}) => {
+import {SelectorType} from "../types";
+
+const Selector = ({setCountry, countriesJson}: SelectorType) => {
   return (
     <div className="selector-container">
       <select onChange={(e) => setCountry(e.target.value)}>

@@ -2,8 +2,9 @@ import {Title} from "../components/Title";
 import {Selector} from "../components/Selector";
 import {Results} from "../components/Results";
 import {Header} from "../components/Header";
+import {TopPageType} from "../types";
 
-const TopPage = ({countriesJson, setCountry, countryData, loading}) => {
+const TopPage = ({countriesJson, setCountry, countryData, loading}: TopPageType) => {
   return (
     <div className="top-page-container">
       <div>
